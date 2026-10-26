@@ -1,0 +1,412 @@
+{
+  "info": {
+    "name": "News Aggregator API",
+    "description": "Run \"Users > Signup\" then \"Users > Login\" first: login stores the token, and \"News > Get news\" stores the first article id for the read/favorite requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "articleId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health check",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Clark Kent\",\n  \"email\": \"clark@superman.com\",\n  \"password\": \"Krypt()n8\",\n  \"preferences\": [\n    \"movies\",\n    \"comics\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/signup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "signup"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    pm.collectionVariables.set(\"token\", pm.response.json().token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "noauth"
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"clark@superman.com\",\n  \"password\": \"Krypt()n8\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get preferences",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/preferences",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "preferences"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update preferences",
+          "request": {
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"preferences\": [\n    \"movies\",\n    \"comics\",\n    \"games\"\n  ],\n  \"language\": \"en\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/preferences",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "preferences"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "News",
+      "item": [
+        {
+          "name": "Get news",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const news = pm.response.json().news || [];",
+                  "if (news.length) {",
+                  "    pm.collectionVariables.set(\"articleId\", news[0].id);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/news",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search news",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/news/search/technology",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news",
+                "search",
+                "technology"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark article as read",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/news/{{articleId}}/read",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news",
+                "{{articleId}}",
+                "read"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark article as favorite",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/news/{{articleId}}/favorite",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news",
+                "{{articleId}}",
+                "favorite"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get read articles",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/news/read",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news",
+                "read"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get favorite articles",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/news/favorites",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news",
+                "favorites"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Remove favorite",
+          "request": {
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/news/{{articleId}}/favorite",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news",
+                "{{articleId}}",
+                "favorite"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
