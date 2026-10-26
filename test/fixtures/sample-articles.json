@@ -1,0 +1,120 @@
+[
+    {
+        "title": "Summer movies lean on original stories as franchise fatigue sets in",
+        "description": "Studios are betting on standalone films after several sequels underperformed at the box office.",
+        "url": "https://news.example.com/movies/original-stories-summer-slate",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-25T09:30:00Z",
+        "tags": ["movies", "film", "entertainment", "box office"]
+    },
+    {
+        "title": "Independent film festival announces record number of debut directors",
+        "description": "More than half of this year's selections come from first-time filmmakers.",
+        "url": "https://news.example.com/movies/festival-debut-directors",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-23T15:00:00Z",
+        "tags": ["movies", "film", "festival"]
+    },
+    {
+        "title": "Comics publishers turn to webtoon formats to reach younger readers",
+        "description": "Vertical-scroll comics are now the fastest growing segment of digital comic sales.",
+        "url": "https://news.example.com/comics/webtoon-formats",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-24T11:15:00Z",
+        "tags": ["comics", "publishing", "webtoon"]
+    },
+    {
+        "title": "Classic superhero comics return to print in restored editions",
+        "description": "Long out-of-print issues are being re-released with restored colour and new essays.",
+        "url": "https://news.example.com/comics/restored-editions",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-20T08:00:00Z",
+        "tags": ["comics", "superhero", "books"]
+    },
+    {
+        "title": "Indie games dominate this year's award nominations",
+        "description": "Small studios took most of the nominations, including game of the year.",
+        "url": "https://news.example.com/games/indie-award-nominations",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-25T18:45:00Z",
+        "tags": ["games", "gaming", "awards"]
+    },
+    {
+        "title": "Cloud gaming services expand to more regions",
+        "description": "Lower latency networks make streamed games playable on low-end devices.",
+        "url": "https://news.example.com/games/cloud-gaming-expansion",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-22T13:20:00Z",
+        "tags": ["games", "gaming", "cloud", "technology"]
+    },
+    {
+        "title": "Open source maintainers adopt new funding model",
+        "description": "A growing number of foundations now pay maintainers of widely used libraries directly.",
+        "url": "https://news.example.com/technology/open-source-funding",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-24T07:10:00Z",
+        "tags": ["technology", "software", "open source"]
+    },
+    {
+        "title": "Chip makers race to cut power use in data centres",
+        "description": "New processor designs promise the same performance at a fraction of the energy cost.",
+        "url": "https://news.example.com/technology/data-centre-power",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-21T10:00:00Z",
+        "tags": ["technology", "hardware", "energy"]
+    },
+    {
+        "title": "Underdog club reaches cup final after penalty shoot-out",
+        "description": "The second-division side beat the league leaders in a dramatic semi-final.",
+        "url": "https://news.example.com/sports/underdog-cup-final",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-25T21:30:00Z",
+        "tags": ["sports", "football", "soccer"]
+    },
+    {
+        "title": "Researchers map deep ocean currents with autonomous drones",
+        "description": "The data could improve long-range climate and weather models.",
+        "url": "https://news.example.com/science/ocean-current-drones",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-23T06:40:00Z",
+        "tags": ["science", "climate", "ocean"]
+    },
+    {
+        "title": "Small businesses report steady growth in online sales",
+        "description": "A quarterly survey shows independent retailers gaining share on marketplaces.",
+        "url": "https://news.example.com/business/small-business-online-sales",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-22T09:00:00Z",
+        "tags": ["business", "economy", "retail"]
+    },
+    {
+        "title": "Study links regular walking to better sleep quality",
+        "description": "Participants who walked 30 minutes a day reported falling asleep faster.",
+        "url": "https://news.example.com/health/walking-sleep-study",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-19T12:00:00Z",
+        "tags": ["health", "fitness", "sleep"]
+    },
+    {
+        "title": "Les cinémas indépendants attirent un nouveau public",
+        "description": "La fréquentation des salles indépendantes progresse pour la deuxième année consécutive.",
+        "url": "https://news.example.com/fr/movies/cinemas-independants",
+        "source": "Sample Wire",
+        "author": "Sample Wire Staff",
+        "publishedAt": "2026-10-24T16:00:00Z",
+        "language": "fr",
+        "tags": ["movies", "cinéma", "film"]
+    }
+]
