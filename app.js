@@ -1,17 +1,11 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const { createApp } = require('./src/app');
+const { startServer } = require('./src/server');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+const app = createApp();
 
-app.listen(port, (err) => {
-    if (err) {
-        return console.log('Something bad happened', err);
-    }
-    console.log(`Server is listening on ${port}`);
-});
-
-
+// Listen only when run directly (`npm start`); tests import the app and drive it with supertest.
+if (require.main === module) {
+    startServer(app);
+}
 
 module.exports = app;
